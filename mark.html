@@ -20,14 +20,14 @@
         }
         body::before{
             content:"";
-            background: url("Assets/mark.jpg") no-repeat center center/cover;
+            background: url("Assets/attend.jpeg") no-repeat center center/cover;
             position:absolute;
             top:0px;
             left:0px;
             width: 100vw;
             height: 100vh;
             z-index: -1;
-            opacity:0.29;
+            opacity:0.59;
         }
         .form{
             margin:auto;
@@ -40,6 +40,24 @@
             background-color: white;
             color:black;
         }
+        video{
+          
+          margin:11vh ;
+          margin-bottom: 2vh;;
+         }
+         
+.bttn{
+   display:block;
+   background: none;
+   border:2px solid #130468;
+   background-color: #130468;
+   color:white;
+   padding:5px;
+   font-size: 18px;
+   cursor:pointer;
+   margin:10px 291px;
+
+}
     </style>
   </head>
   <body>
@@ -59,7 +77,27 @@
           </div>
         </div>
       </nav>
-    
+      <div id="container">
+        <video autoplay="true" id="videoElement">
+        
+        </video>
+      </div>
+      <div class="button">
+        <button class="bttn" name="Submit_B" type="submit" value="message">Mark Attendance</button>
+    </div>
+      <script>
+        var video = document.querySelector("#videoElement");
+
+if (navigator.mediaDevices.getUserMedia) {
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then(function (stream) {
+      video.srcObject = stream;
+    })
+    .catch(function (err0r) {
+      console.log("Something went wrong!");
+    });
+}
+      </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
   </body>
 </html>
